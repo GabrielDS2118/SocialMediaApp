@@ -1,0 +1,22 @@
+1.Instalaciones
+
+    Backend/
+
+        npm i 
+            express 
+            body-parser 
+            bcrypt
+            cors
+            dotenv
+            gridfs-stream (upload files)
+            multer
+            multer-gridfs-storage
+            helmet
+            morgan
+            jsonwebtoken
+            mongoose
+        
+        npm init -y
+
+        package.json/
+            "type": "module"

@@ -20,3 +20,44 @@
 
         package.json/
             "type": "module"
+
+2.Configuracion inicial index.js
+
+    Backend/
+
+        index.js
+
+            - CONFIGURATIONS
+                Middlewares
+
+            - FILE STORAGE
+                Multer es una librería que nos ayuda a subir archivos
+                    destination
+                    filename 
+
+            - MongoDb
+
+                Create a Shared Cluster
+
+                   - Seguir los pasos indicados en el commit 15.Conectarse a las bases de datos MongoDb en 
+                    el repositorio AmazonaPro
+                    
+                    - UserName -> gabsocialmediapp
+                    Password -> cristgab1922
+
+                   - Add entries to your IP Access List
+                        Add My Current IP Adress
+                    
+                   -  Finalizar creacion
+
+                Connect 
+                    Connect your application
+                    Copy conecction string y copiarla en la variable de entorno MONGO_URL (Backend/.env)
+                
+                MONGOOSE SETUP (backend/index.js)
+                    mongoose.connect(...)
+                
+                Probar conexion a MongoDb
+                    backend/ -> nodemon index.js
+
+

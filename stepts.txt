@@ -1,63 +1,96 @@
-1.Instalaciones
+BACKEND
 
-    Backend/
+    1.Instalaciones
 
-        npm i 
-            express 
-            body-parser 
-            bcrypt
-            cors
-            dotenv
-            gridfs-stream (upload files)
-            multer
-            multer-gridfs-storage
-            helmet
-            morgan
-            jsonwebtoken
-            mongoose
-        
-        npm init -y
+        Backend/
 
-        package.json/
-            "type": "module"
+            npm i 
+                express 
+                body-parser 
+                bcrypt
+                cors
+                dotenv
+                gridfs-stream (upload files)
+                multer
+                multer-gridfs-storage
+                helmet
+                morgan
+                jsonwebtoken
+                mongoose
+            
+            npm init -y
 
-2.Configuracion inicial index.js
+            package.json/
+                "type": "module"
 
-    Backend/
+    2.Configuracion inicial index.js
 
-        index.js
+        Backend/
 
-            - CONFIGURATIONS
-                Middlewares
+            index.js
 
-            - FILE STORAGE
-                Multer es una librería que nos ayuda a subir archivos
-                    destination
-                    filename 
+                - CONFIGURATIONS
+                    Middlewares
 
-            - MongoDb
+                - FILE STORAGE
+                    Multer es una librería que nos ayuda a subir archivos
+                        destination
+                        filename 
 
-                Create a Shared Cluster
+                - MongoDb
 
-                   - Seguir los pasos indicados en el commit 15.Conectarse a las bases de datos MongoDb en 
-                    el repositorio AmazonaPro
+                    Create a Shared Cluster
+
+                    - Seguir los pasos indicados en el commit 15.Conectarse a las bases de datos MongoDb en 
+                        el repositorio AmazonaPro
+                        
+                        - UserName -> gabsocialmediapp
+                        Password -> cristgab1922
+
+                    - Add entries to your IP Access List
+                            Add My Current IP Adress
+                        
+                    -  Finalizar creacion
+
+                    Connect 
+                        Connect your application
+                        Copy conecction string y copiarla en la variable de entorno MONGO_URL (Backend/.env)
                     
-                    - UserName -> gabsocialmediapp
-                    Password -> cristgab1922
-
-                   - Add entries to your IP Access List
-                        Add My Current IP Adress
+                    MONGOOSE SETUP (backend/index.js)
+                        mongoose.connect(...)
                     
-                   -  Finalizar creacion
+                    Probar conexion a MongoDb
+                        backend/ -> nodemon index.js
 
-                Connect 
-                    Connect your application
-                    Copy conecction string y copiarla en la variable de entorno MONGO_URL (Backend/.env)
-                
-                MONGOOSE SETUP (backend/index.js)
-                    mongoose.connect(...)
-                
-                Probar conexion a MongoDb
-                    backend/ -> nodemon index.js
+    3.Autenticacion y Autorizacion
 
+        - Autenticacion
+
+                models/ -> User.js
+                    Schema de los Usuarios
+                
+                controllers/ -> auth.js (Acceso a la bd)
+
+                    register:
+                        Toma los datos datos en el body de la request
+                        y guarda la informacion en la base de datos
+
+                    login:
+                        Si el usuario existe valida que la contraseña ingresada corresponda con 
+                        la guardada en la base de datos
+                        Se genera un token en caso de que las credenciales sean correctas
+                    
+                
+                routes/ -> auth.js
+                    Endpoints de auth precedidos por /auth : /login,
+                    Los endpoints llaman a las funciones de los controladores
+            
+        - Autorizacion
+    
+            middleware/ -> auth.js
+                verifyToken :
+                    Verifica que el token enviado corresponda con el JWT_SECRET
+
+        - index.js
+            '/auth' -> authRoutes
 

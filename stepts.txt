@@ -94,3 +94,37 @@ BACKEND
         - index.js
             '/auth' -> authRoutes
 
+    4.Users Routes
+
+        index.js
+            app.use('/users', userRoutes);
+        
+        routes/ -> users.js
+
+            Endpoints para:
+                . Buscar un usuario
+                . Obtener la lista de amigos de un usuario
+                . Actualizar lista de amigos (agregar o eliminar)
+            
+            Cada uno de los endpoints esta protegido por el verifyToken
+        
+        controllers/ -> users_controller.js
+
+            listFriends(userId):
+                Con el id de un , se busca el usuario y se retorna su lista de amigos
+            
+            getUser():
+                Se busca al usuario por medio de un findById()
+            
+            getUserFriends():
+                Toma el id del usario pasado como parámetro y lo envia a la funcion listFriends
+            
+            addRemoveFriend():
+
+                En caso de que la lista de amigos del usario incluya el friendId proporcionado,
+                se eliminará el amigo de la lista del usuraio y en la lista de amigos que corresponde
+                al usuario con el frindId se eliminará el usuario.
+
+                En caso contrario se agregarán a la lista de amigos
+        
+    

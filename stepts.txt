@@ -127,4 +127,45 @@ BACKEND
 
                 En caso contrario se agregarán a la lista de amigos
         
-    
+    5.Post Routes
+
+        index.js
+
+            '/posts' ->  postRoutes
+            
+            post('/posts') ->
+                Crear un Post,se pone este endpoint en el index porque se necesita subir
+                una imagen
+
+        routes/ -> postRoutes.js
+
+            Endpoints protegidos con verifyToken:
+                '/' -> Obtemer todos los posts(home)
+                '/:userId/posts' -> Obtener los posts de un usuario
+                '/:id/like' -> Like o deslike
+        
+        controllers/ -> postController.js
+
+            createPost
+                Recibe tres parámetros (userId, description, picturePath)
+                Busca el usuario con su id
+                Crea el nueva post y toma algunos datos del usuario
+                Retorna todos los post
+            
+            getFeedPosts
+                Retorna todos los posts
+            
+            getUserPosts
+                Retorna todos los posts filtrando por el userId proporcionado como
+                parámetro  
+            
+            likePost
+                Se busca el post con el id proporcionado como parámetro
+
+                Verifica que en la lista de likes este el userId
+
+                    Afirmativo:
+                        Significa que el usuario ya le dio like, entonces se elimina
+
+                    Negativo:
+                        Se agrega el like

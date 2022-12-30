@@ -169,3 +169,15 @@ BACKEND
 
                     Negativo:
                         Se agrega el like
+
+    6.Backend Data Add 
+
+        data/dataDemo.js
+            Archivo con datos de ejemplo para users y posts
+        
+        index.js
+            Insert Many al iniciar el servidor
+            Comentar, para evitar datos duplicados
+    
+
+    

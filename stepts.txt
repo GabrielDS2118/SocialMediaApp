@@ -179,5 +179,46 @@ BACKEND
             Insert Many al iniciar el servidor
             Comentar, para evitar datos duplicados
     
+FRONTEND
 
-    
+    frontend/ 
+
+    7.Frontend Instalation and Setup
+
+        Iniciar proyecto
+
+            npx create-react-app ./
+            En caso de que no se tenga instalado npx -> npm i -g npx
+
+        Instalaciones
+
+            npm i :
+              react-redux
+              @reduxjs/toolkit
+              redux-persist
+              react-dropzone
+              dotenv
+              formik
+              yup
+              react-router-dom@6
+              @mui/material
+              @emotion/styled
+              @mui/icons-material
+        
+        Logos
+            public/assets
+                linkedin y twitter
+        
+        Estructura básica de src/
+            App.js
+            index.css
+            index.js
+        
+        Index.css
+            Import de Google Fonts
+            Estilos globales
+                height,width,font-family
+        
+        jsconfig.json
+            compilerOptions
+            include

@@ -222,3 +222,60 @@ FRONTEND
         jsconfig.json
             compilerOptions
             include
+    
+    8.Folder Architecture and React Router
+
+        Estructura de carpetas en src/
+
+            scenes/
+                homePage
+                loginPage
+                navbar
+                profilePage
+                widgets
+
+                Dentro de cada uno de estos hacer su correspondiente index
+            
+            components
+            state/ -> indexState.js
+        
+        src/App.js
+            Rutas
+        
+    9.Configurando State
+
+        src/state -> indexState.js
+
+            initialState 
+
+            authSlice
+
+                reducers: Son las funciones que nos permiten modificar el initialState
+
+                    setMode -> Cambiar de modo claro a oscuro y viceversa
+
+                    setLogin -> El user y el token por defecto son null,
+                                Esta funcion modifica sus valores con lo que se pase como páramtero (action)
+
+                    setLogout -> user y token volverán a ser null
+
+                    setFriends -> Si ya se ha logueado el usuario la lista de usuarios será igual a la
+                                que se pase como parámetro en el action
+                    
+                    setPosts -> Los posts serán igual a los que se pasen como parámetro
+
+                    setPosts -> Actualizar Post
+                                Se recorre la lista de posts 
+                                Si el postId conrresponde con el id del post que se envio como parámetro, se Actualizar
+        
+
+        src/index.js
+
+            Configurar redux-persists
+
+                 Con la biblioteca Redux Persist, los desarrolladores pueden guardar la tienda Redux en un almacenamiento persistente, 
+                 por ejemplo, el almacenamiento local
+
+                Incluso después de actualizar el navegador, se conservará el estado del sitio
+
+        

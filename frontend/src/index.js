@@ -20,7 +20,7 @@ import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const persistConfig = { key: 'root', storage, version: 1 };
-const persistedReducer = persistReducer(persistConfig, authSlice);
+const persistedReducer = persistReducer(persistConfig, authSlice.reducer);
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>

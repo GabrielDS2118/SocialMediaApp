@@ -278,4 +278,14 @@ FRONTEND
 
                 Incluso después de actualizar el navegador, se conservará el estado del sitio
 
-        
+    10.Color, Theme, Dark Mode, and Styling Setup
+
+        src/theme.js
+            Configuracion de colores y tipografía
+
+        src/App.js
+            Aplicar theme
+
+        src/components/ -> FlexBetween.jsx
+            Estilos que vamos a reutilizar (alineaciones) 
+

@@ -293,4 +293,23 @@ FRONTEND
         El hook useMediaQuery sirve para determinar si el ancho de la pantalla es suficiente
         Ayuda a que sea responsive
     
+    12.Register, Login Pages, and Form
+
+        src/loginPage
+
+            Form.jsx
+
+                El formulario tiene un schema tanto para login como para register
+
+                Si el usuario al ingresar la información no cumple con los requerimientos de los campos
+                se mostrarán los mensajes indicando las condiciones para cada campo
+
+                La funcion handleFormSubmit() evaluará si lo que se desea es registrarse o loguearse y llamará a las
+                funciones register() o login() según sea el caso, las cuales llamarán a la API
+            
+            indexLoginPage.jsx
+
+                Nombre de la app y parráfo de bienvenida
+                Importará el formulario
+
     

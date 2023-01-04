@@ -289,3 +289,8 @@ FRONTEND
         src/components/ -> FlexBetween.jsx
             Estilos que vamos a reutilizar (alineaciones) 
 
+    11.Navbar
+        El hook useMediaQuery sirve para determinar si el ancho de la pantalla es suficiente
+        Ayuda a que sea responsive
+    
+    

@@ -312,4 +312,28 @@ FRONTEND
                 Nombre de la app y parráfo de bienvenida
                 Importará el formulario
 
+    13.Home Page: Widget del Usuario 
+
+        components/WidgetWrapper.jsx
+            Estilos generales para los widgets:
+                padding,backgroundColor,borderRadius
+
+        components/UserImage.jsx
+            Estilos para la foto del perfil
+            
+        widgets/UserWidget.jsx
+
+            Hace una solicitud a la API para buscar al usuario con el _id enviado
+
+            Muestra la informacion del usuario:
+                Foto,nombre,amigos
+                Location,profesion
+                Vistas,impresiones
+                Redes Sociales
+            
+        homePage/indexHomePage.jsx
+            Accede al usuario que se ha logueado y envia su _id al componente UserWidget
+
     
+            
+

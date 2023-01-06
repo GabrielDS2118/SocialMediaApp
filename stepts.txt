@@ -334,6 +334,17 @@ FRONTEND
         homePage/indexHomePage.jsx
             Accede al usuario que se ha logueado y envia su _id al componente UserWidget
 
-    
+    14.Home Page: Crear Post
+
+        scenes/widgets/MyPostWidget.jsx
+
+            UserImage con el picturepath pasado como parámetro desde el indexHomePage
+
+            Lo que se escriba en el input será la descripcion del post
+
+            Si el usuario quiere agregar una imagen le dará click al icono image:
+                Se desplegará un dropzone para subir la imagen
+                En caso de que se suba una imagen aparecerá el nombre de esta y un boton
+                con la opcion de eliminar la imagen
             
 

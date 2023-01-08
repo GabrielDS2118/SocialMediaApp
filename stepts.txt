@@ -347,4 +347,4 @@ FRONTEND
                 En caso de que se suba una imagen aparecerá el nombre de esta y un boton
                 con la opcion de eliminar la imagen
             
-
+    15.Post and Posts Widgets

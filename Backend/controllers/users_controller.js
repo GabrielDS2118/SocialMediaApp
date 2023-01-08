@@ -1,23 +1,6 @@
 import User from '../models/User.js';
 
-/*READ*/
-
-const listFriends = async (userId) => {
-  const user = await User.findById(userId);
-
-  const friends = await Promise.all(
-    user.friends.map((userId) => User.findById(userId))
-  );
-
-  const formattedFriends = friends.map(
-    ({ _id, firstName, lastName, occupation, location, picturePath }) => {
-      return { _id, firstName, lastName, occupation, location, picturePath };
-    }
-  );
-
-  return formattedFriends;
-};
-
+/* READ */
 export const getUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -31,15 +14,23 @@ export const getUser = async (req, res) => {
 export const getUserFriends = async (req, res) => {
   try {
     const { id } = req.params;
-    const friends = listFriends(id);
+    const user = await User.findById(id);
 
-    res.status(200).json(friends);
+    const friends = await Promise.all(
+      user.friends.map((id) => User.findById(id))
+    );
+    const formattedFriends = friends.map(
+      ({ _id, firstName, lastName, occupation, location, picturePath }) => {
+        return { _id, firstName, lastName, occupation, location, picturePath };
+      }
+    );
+    res.status(200).json(formattedFriends);
   } catch (err) {
-    res.send(404).json({ message: err.message });
+    res.status(404).json({ message: err.message });
   }
 };
 
-/*UPDATE*/
+/* UPDATE */
 export const addRemoveFriend = async (req, res) => {
   try {
     const { id, friendId } = req.params;
@@ -56,9 +47,19 @@ export const addRemoveFriend = async (req, res) => {
     await user.save();
     await friend.save();
 
-    const friends = listFriends(id);
+    // const friends = await Promise.all(
+    //   user.friends.map((id) => User.findById(id))
+    // );
+    // const formattedFriends = friends.map(
+    //   ({ _id, firstName, lastName, occupation, location, picturePath }) => {
+    //     return { _id, firstName, lastName, occupation, location, picturePath };
+    //   }
+    // );
+
+    const friends = user.friends;
+
     res.status(200).json(friends);
   } catch (err) {
-    res.send(404).json({ message: err.message });
+    res.status(404).json({ message: err.message });
   }
 };

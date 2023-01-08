@@ -23,7 +23,7 @@ const PostWidget = ({
   likes,
   comments,
 }) => {
-  console.log(comments);
+  // console.log(comments);
   const [isComments, setIsComments] = useState(false);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
@@ -38,7 +38,7 @@ const PostWidget = ({
   const main = palette.neutral.main;
   const primary = palette.primary.main;
 
-  console.log(comments);
+  // console.log(comments);
 
   const patchLike = async () => {
     setLiked(!liked);

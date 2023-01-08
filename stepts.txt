@@ -348,3 +348,7 @@ FRONTEND
                 con la opcion de eliminar la imagen
             
     15.Post and Posts Widgets
+    
+    16.Advert Friend List
+    
+    17.Profile Page

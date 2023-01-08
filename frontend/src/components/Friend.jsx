@@ -1,6 +1,5 @@
 import { PersonAddOutlined, PersonRemoveOutlined } from '@mui/icons-material';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setFriends } from 'state/indexState';
@@ -20,10 +19,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const main = palette.neutral.main;
   const medium = palette.neutral.medium;
 
-  const isFriend = friends.indexOf(friendId);
-  //   console.log(friendId);
-  //   console.log(friends);
-  //   console.log(isFriend);
+  const isFriend = friends.find((friend) => friend._id === friendId);
 
   const patchFriend = async () => {
     const response = await fetch(
@@ -37,7 +33,6 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
       }
     );
     const data = await response.json();
-    console.log(data);
     dispatch(setFriends({ friends: data }));
   };
 
@@ -75,7 +70,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
           onClick={() => patchFriend()}
           sx={{ backgroundColor: primaryLight, p: '0.6rem' }}
         >
-          {isFriend !== -1 ? (
+          {isFriend ? (
             <PersonRemoveOutlined sx={{ color: primaryDark }} />
           ) : (
             <PersonAddOutlined sx={{ color: primaryDark }} />
